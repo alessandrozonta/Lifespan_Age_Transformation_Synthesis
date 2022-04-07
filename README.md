@@ -1,3 +1,9 @@
+```docker run -t -i --gpus all -v ~/Lifespan_Age_Transformation_Synthesis:/lats pytorch/pytorch:1.4-cuda10.1-cudnn7-devel```
+```pip install cmake```
+```apt update```
+```apt install libgl1-mesa-glx```
+```apt install libglib2.0-0```
+
 # Lifespan Age Transformation Synthesis
 ### [Project Page](https://grail.cs.washington.edu/projects/lifespan_age_transformation_synthesis/) | [Paper](https://arxiv.org/pdf/2003.09764.pdf) | [FFHQ-Aging Dataset](https://github.com/royorel/FFHQ-Aging-Dataset)
 

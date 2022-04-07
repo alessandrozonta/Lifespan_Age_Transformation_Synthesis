@@ -12,7 +12,7 @@ class BaseOptions():
 
     def initialize(self):
         # experiment specifics
-        self.parser.add_argument('--name', type=str, default='debug', help='name of the experiment. It decides where to store samples and models')
+        self.parser.add_argument('--name', type=str, default='females_model', help='name of the experiment. It decides where to store samples and models')
         self.parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         self.parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
 
@@ -37,7 +37,7 @@ class BaseOptions():
         # for displays
         self.parser.add_argument('--display_winsize', type=int, default=256,  help='display window size')
         self.parser.add_argument('--display_port', type=int, default=8097, help='visdom port of the web display')
-        self.parser.add_argument('--display_id', type=int, default=1, help='window id of the web display')
+        self.parser.add_argument('--display_id', type=int, default=0, help='window id of the web display')
 
         # for generator
         self.parser.add_argument('--use_modulated_conv', type=bool, default=True, help='if specified, use modulated conv layers in the decoder like in StyleGAN2')
@@ -66,6 +66,15 @@ class BaseOptions():
             self.opt = self.parser.parse_args(args=[])
 
         self.opt.isTrain = self.isTrain   # train or test
+
+
+        # mine
+        self.opt.traverse = True
+        self.opt.in_the_wild = True
+        self.opt.verbose = True
+
+
+
 
         str_ids = self.opt.gpu_ids.split(',')
         self.opt.gpu_ids = []

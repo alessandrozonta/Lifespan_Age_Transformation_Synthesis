@@ -134,6 +134,8 @@ table td {width: %dpx; height: %dpx; padding: 4px; outline: 4px solid black}
         util.save_image(matrix_img, image_path)
 
     def save_row_image(self, visuals, image_path, traverse=False):
+
+        # original and 0 to 100
         visual = visuals[0]
         orig_img = visual['orig_img']
         h, w, c = orig_img.shape
@@ -144,6 +146,7 @@ table td {width: %dpx; height: %dpx; padding: 4px; outline: 4px solid black}
             out_classes = self.numClasses
         for cls in range(out_classes):
             next_im = visual['tex_trans_to_class_' + str(cls)]
+            util.save_image(next_im, image_path=image_path.replace(".png", "_{}.png".format(cls)))
             traversal_img = np.concatenate((traversal_img, next_im), 1)
 
         util.save_image(traversal_img, image_path)

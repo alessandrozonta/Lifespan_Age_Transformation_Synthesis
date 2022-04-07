@@ -18,8 +18,8 @@ class TestOptions(BaseOptions):
         self.parser.add_argument('--compare_to_trained_outputs', action='store_true', help='when true, interpolate a trained class in order to compare to trained outputs')
         self.parser.add_argument('--compare_to_trained_class', type=int, default=1, help='what class to compare to')
         self.parser.add_argument('--trained_class_jump', type=int, default=1, choices=[1,2],help='how many classes to jump')
-        self.parser.add_argument('--interp_step', type=float, default=0.5, help='step size of interpolated w space vectors between each 2 true w space vectors')
+        self.parser.add_argument('--interp_step', type=float, default=0.05, help='step size of interpolated w space vectors between each 2 true w space vectors')
         self.parser.add_argument('--deploy', action='store_true', help='when true, run forward pass on a list of images')
-        self.parser.add_argument('--image_path_file', type=str, help='a file with a list of images to perform run through the network and/or latent space traversal on')
+        self.parser.add_argument('--image_path_file', type=str, default="females_image_list.txt", help='a file with a list of images to perform run through the network and/or latent space traversal on')
         self.parser.add_argument('--debug_mode', action='store_true', help='when true, all intermediate outputs are saved to the html file')
         self.isTrain = False

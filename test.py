@@ -86,4 +86,5 @@ def test(opt):
 
 if __name__ == "__main__":
     opt = TestOptions().parse(save=False)
+
     test(opt)
